@@ -61,6 +61,7 @@ const useFirebass = () => {
       .then(() => {})
       // user login relood for not logout Stp.8.5
       .finally(() => setIsLooding(false));
+      window.location.reload(); 
   };
 
   // Registration user Account STP.9
@@ -109,6 +110,7 @@ const useFirebass = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
+        window.location.reload(); 
         console.log(user);
         setError("Verification Sent Email");
         //  Email verification sent Stp.12.1 end

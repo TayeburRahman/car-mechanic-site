@@ -1,0 +1,20 @@
+.header-cart{
+    justify-content: center
+
+}
+.cart-icon{
+    position: relative;
+    width: 50px;
+}
+.cart-count{
+    background-color: brown;
+    padding: 0px 5px 2px 5px;
+    border-radius:50px ;
+    position: absolute;
+    top: 0;
+    right: 0;
+    -webkit-border-radius:50px ;
+    -moz-border-radius:50px ;
+    -ms-border-radius:50px ;
+    -o-border-radius:50px ;
+}

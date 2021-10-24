@@ -64,7 +64,7 @@ const Login = () => {
           <label className="form-check-label" for="exampleCheck1">
             Check me out
           </label>
-          <a onClick={handelResetPassword} className="text-danger ps-3" href=""> I_forgot_my_password</a>
+          <a onClick={handelResetPassword} className="text-danger ps-3"  > I_forgot_my_password</a>
         </div>
         <Button
           onClick={handleRegistration}

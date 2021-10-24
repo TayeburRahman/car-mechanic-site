@@ -2,12 +2,14 @@ import React from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
-import { HashLink } from 'react-router-hash-link';
+import { HashLink } from "react-router-hash-link";
+import { BsFillCartPlusFill } from "react-icons/bs";
+import "./Header.css";
 
 const Header = () => {
   const { user, logOut } = useAuth();
   return (
-    <>
+    <div className="header">
       <Navbar
         bg="dark"
         variant="dark"
@@ -15,7 +17,7 @@ const Header = () => {
         collapseOnSelect
         expand="lg"
       >
-        <Container className="">
+        <Container className="header-Container">
           <Navbar.Brand as={Link} to="#home" className="text-warning">
             Car Meachanis
           </Navbar.Brand>
@@ -24,7 +26,11 @@ const Header = () => {
             <Nav.Link as={HashLink} to="/home" className="text-success">
               Home
             </Nav.Link>
-            <Nav.Link as={HashLink} to="/home#survices" className="text-success">
+            <Nav.Link
+              as={HashLink}
+              to="/home#survices"
+              className="text-success header-menu"
+            >
               Services
             </Nav.Link>
             <Nav.Link as={HashLink} to="/home#experts" className="text-success">
@@ -34,17 +40,25 @@ const Header = () => {
               Register
             </Nav.Link>
             {user?.email ? (
-              <Button onClick={logOut} className="m-2" variant="light">Log out</Button>
+              <Button onClick={logOut} className="m-2 me-5" variant="light">
+                Log out
+              </Button>
             ) : (
-              <Button  as={Link} to="/login" variant="light">Login</Button>
-              )}
-              <Navbar.Text>
-                {user.displayName} 
-              </Navbar.Text>
+              <Button as={Link} to="/login" variant="light">
+                Login
+              </Button>
+            )}
+            <Navbar.Text>{user.displayName}</Navbar.Text>
+            <Navbar.Brand className="header-cart d-flex">
+            <h4 className="cart-icon">
+                  <BsFillCartPlusFill />
+                  <h6 className="cart-count">0</h6>
+                </h4>
+            </Navbar.Brand> 
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 };
 
